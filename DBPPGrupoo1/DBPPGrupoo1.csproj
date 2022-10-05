@@ -52,7 +52,13 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Material.Icons, Version=1.1.18.0, Culture=neutral, PublicKeyToken=34ed5903a64b4509, processorArchitecture=MSIL">
+      <HintPath>..\packages\Material.Icons.1.1.18\lib\netstandard2.0\Material.Icons.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -108,9 +114,6 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -188,6 +191,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\FontAwesomeIconsDD\assets\font-awesome\css\font-awesome.min.css" />
+    <Content Include="App_Plugins\FontAwesomeIconsDD\assets\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="App_Plugins\FontAwesomeIconsDD\FontAwesomeIconsDD.controller.js" />
+    <Content Include="App_Plugins\FontAwesomeIconsDD\FontAwesomeIconsDD.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -222,6 +229,12 @@
     <Content Include="Model2.edmx.diagram">
       <DependentUpon>Model2.edmx</DependentUpon>
     </Content>
+    <Content Include="App_Plugins\FontAwesomeIconsDD\package.manifest" />
+    <Content Include="App_Plugins\FontAwesomeIconsDD\assets\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="App_Plugins\FontAwesomeIconsDD\assets\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="App_Plugins\FontAwesomeIconsDD\assets\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="App_Plugins\FontAwesomeIconsDD\assets\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="App_Plugins\FontAwesomeIconsDD\assets\font-awesome\fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -19,7 +19,10 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Codigo)
+                @Html.DisplayNameFor(model => model.ProductoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoUPC)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Descripcion)
@@ -33,6 +36,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Stock)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria.Descripcion)
+            </th>
             <th></th>
         </tr>
 
@@ -41,9 +47,13 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Codigo)
+                    @Html.DisplayFor(modelItem => item.ProductoId)
                 </td>
                 <td>
+                    @Html.DisplayNameFor(model => model.CodigoUPC)
+                 </td>
+                <td>
+
                     @Html.DisplayFor(modelItem => item.Descripcion)
                 </td>
                 <td>
@@ -56,9 +66,12 @@
                     @Html.DisplayFor(modelItem => item.Stock)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ProductsId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ProductsId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ProductsId })
+                    @Html.DisplayFor(modelItem => item.Categoria.Descripcion)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProductoId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ProductoId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProductoId })
                 </td>
             </tr>
         }
