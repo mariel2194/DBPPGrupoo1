@@ -9,110 +9,118 @@ using System.Web.Mvc;
 using DBPPGrupoo1;
 using EntityState = System.Data.Entity.EntityState;
 
-
 namespace DBPPGrupoo1.Controllers
 {
-    public class VendedoresController : Controller
+    public class xDetallesController : Controller
     {
         private FacturacionProdGrupoo1Entities1 db = new FacturacionProdGrupoo1Entities1();
 
-        // GET: Vendedores
+        // GET: Detalles
         public ActionResult Index()
         {
-            return View(db.Vendedores.ToList());
+            var detalle = db.Detalle.Include(d => d.Facturas).Include(d => d.Productos);
+            return View(detalle.ToList());
         }
 
-        // GET: Vendedores/Details/5
+        // GET: Detalles/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vendedores vendedores = db.Vendedores.Find(id);
-            if (vendedores == null)
+            Detalle detalle = db.Detalle.Find(id);
+            if (detalle == null)
             {
                 return HttpNotFound();
             }
-            return View(vendedores);
+            return View(detalle);
         }
 
-        // GET: Vendedores/Create
+        // GET: Detalles/Create
         public ActionResult Create()
         {
+            ViewBag.FacturasID = new SelectList(db.Facturas, "FacturasID", "FacturasID");
+            ViewBag.ProductoId = new SelectList(db.Productos, "ProductoId", "CodigoUPC");
             return View();
         }
 
-        // POST: Vendedores/Create
+        // POST: Detalles/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "VendedorId,Nombre,Apellido,Activo,Email,Telefono,ComisionPorVenta")] Vendedores vendedores)
+        public ActionResult Create([Bind(Include = "DetalleID,Cantidad,Precio,ProductoId,FacturasID")] Detalle detalle)
         {
             if (ModelState.IsValid)
             {
-                db.Vendedores.Add(vendedores);
+                db.Detalle.Add(detalle);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(vendedores);
+            ViewBag.FacturasID = new SelectList(db.Facturas, "FacturasID", "FacturasID", detalle.FacturasID);
+            ViewBag.ProductoId = new SelectList(db.Productos, "ProductoId", "CodigoUPC", detalle.ProductoId);
+            return View(detalle);
         }
 
-        // GET: Vendedores/Edit/5
+        // GET: Detalles/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vendedores vendedores = db.Vendedores.Find(id);
-            if (vendedores == null)
+            Detalle detalle = db.Detalle.Find(id);
+            if (detalle == null)
             {
                 return HttpNotFound();
             }
-            return View(vendedores);
+            ViewBag.FacturasID = new SelectList(db.Facturas, "FacturasID", "FacturasID", detalle.FacturasID);
+            ViewBag.ProductoId = new SelectList(db.Productos, "ProductoId", "CodigoUPC", detalle.ProductoId);
+            return View(detalle);
         }
 
-        // POST: Vendedores/Edit/5
+        // POST: Detalles/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "VendedorId,Nombre,Apellido,Activo,Email,Telefono,ComisionPorVenta")] Vendedores vendedores)
+        public ActionResult Edit([Bind(Include = "DetalleID,Cantidad,Precio,ProductoId,FacturasID")] Detalle detalle)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(vendedores).State = EntityState.Modified;
+                db.Entry(detalle).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(vendedores);
+            ViewBag.FacturasID = new SelectList(db.Facturas, "FacturasID", "FacturasID", detalle.FacturasID);
+            ViewBag.ProductoId = new SelectList(db.Productos, "ProductoId", "CodigoUPC", detalle.ProductoId);
+            return View(detalle);
         }
 
-        // GET: Vendedores/Delete/5
+        // GET: Detalles/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vendedores vendedores = db.Vendedores.Find(id);
-            if (vendedores == null)
+            Detalle detalle = db.Detalle.Find(id);
+            if (detalle == null)
             {
                 return HttpNotFound();
             }
-            return View(vendedores);
+            return View(detalle);
         }
 
-        // POST: Vendedores/Delete/5
+        // POST: Detalles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Vendedores vendedores = db.Vendedores.Find(id);
-            db.Vendedores.Remove(vendedores);
+            Detalle detalle = db.Detalle.Find(id);
+            db.Detalle.Remove(detalle);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -9,110 +9,109 @@ using System.Web.Mvc;
 using DBPPGrupoo1;
 using EntityState = System.Data.Entity.EntityState;
 
-
 namespace DBPPGrupoo1.Controllers
 {
-    public class VendedoresController : Controller
+    public class xMetodoPagoesController : Controller
     {
         private FacturacionProdGrupoo1Entities1 db = new FacturacionProdGrupoo1Entities1();
 
-        // GET: Vendedores
+        // GET: MetodoPagoes
         public ActionResult Index()
         {
-            return View(db.Vendedores.ToList());
+            return View(db.MetodoPago.ToList());
         }
 
-        // GET: Vendedores/Details/5
+        // GET: MetodoPagoes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vendedores vendedores = db.Vendedores.Find(id);
-            if (vendedores == null)
+            MetodoPago metodoPago = db.MetodoPago.Find(id);
+            if (metodoPago == null)
             {
                 return HttpNotFound();
             }
-            return View(vendedores);
+            return View(metodoPago);
         }
 
-        // GET: Vendedores/Create
+        // GET: MetodoPagoes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Vendedores/Create
+        // POST: MetodoPagoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "VendedorId,Nombre,Apellido,Activo,Email,Telefono,ComisionPorVenta")] Vendedores vendedores)
+        public ActionResult Create([Bind(Include = "MetodoPagoID,Descripcion,CantidadDias,Dolar_US,Activo")] MetodoPago metodoPago)
         {
             if (ModelState.IsValid)
             {
-                db.Vendedores.Add(vendedores);
+                db.MetodoPago.Add(metodoPago);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(vendedores);
+            return View(metodoPago);
         }
 
-        // GET: Vendedores/Edit/5
+        // GET: MetodoPagoes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vendedores vendedores = db.Vendedores.Find(id);
-            if (vendedores == null)
+            MetodoPago metodoPago = db.MetodoPago.Find(id);
+            if (metodoPago == null)
             {
                 return HttpNotFound();
             }
-            return View(vendedores);
+            return View(metodoPago);
         }
 
-        // POST: Vendedores/Edit/5
+        // POST: MetodoPagoes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "VendedorId,Nombre,Apellido,Activo,Email,Telefono,ComisionPorVenta")] Vendedores vendedores)
+        public ActionResult Edit([Bind(Include = "MetodoPagoID,Descripcion,CantidadDias,Dolar_US,Activo")] MetodoPago metodoPago)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(vendedores).State = EntityState.Modified;
+                db.Entry(metodoPago).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(vendedores);
+            return View(metodoPago);
         }
 
-        // GET: Vendedores/Delete/5
+        // GET: MetodoPagoes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vendedores vendedores = db.Vendedores.Find(id);
-            if (vendedores == null)
+            MetodoPago metodoPago = db.MetodoPago.Find(id);
+            if (metodoPago == null)
             {
                 return HttpNotFound();
             }
-            return View(vendedores);
+            return View(metodoPago);
         }
 
-        // POST: Vendedores/Delete/5
+        // POST: MetodoPagoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Vendedores vendedores = db.Vendedores.Find(id);
-            db.Vendedores.Remove(vendedores);
+            MetodoPago metodoPago = db.MetodoPago.Find(id);
+            db.MetodoPago.Remove(metodoPago);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

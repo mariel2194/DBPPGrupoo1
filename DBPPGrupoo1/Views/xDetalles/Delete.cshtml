@@ -1,4 +1,4 @@
-﻿@model DBPPGrupoo1.Categoria
+﻿@model DBPPGrupoo1.Detalle
 
 @{
     ViewBag.Title = "Delete";
@@ -8,23 +8,23 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Categorias</h4>
+    <h4>Detalle</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.CategoriaID)
+            @Html.DisplayNameFor(model => model.Cantidad)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CategoriaID)
+            @Html.DisplayFor(model => model.Cantidad)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
+            @Html.DisplayNameFor(model => model.Precio)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Descripcion)
+            @Html.DisplayFor(model => model.Precio)
         </dd>
 
     </dl>

@@ -27,14 +27,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Dolar_US)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Dolar_US)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Activo)
         </dt>
 
@@ -42,9 +34,13 @@
             @Html.DisplayFor(model => model.Activo)
         </dd>
 
+        <dd>
+            @Html.DisplayFor(model => model.US)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MetodoPagoID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MetodoPagoId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

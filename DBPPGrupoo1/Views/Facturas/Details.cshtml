@@ -18,9 +18,33 @@
             @Html.DisplayFor(model => model.Fecha)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Clientes.Nombre_Comercial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.Nombre_Comercial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MetodoPago.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MetodoPago.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vendedores.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vendedores.Nombre)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.FacturaId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FacturasID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

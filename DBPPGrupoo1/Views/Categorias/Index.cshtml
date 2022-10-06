@@ -5,7 +5,7 @@
 }
 
 <div class="custom">
-    <h2>Registro de Categoras</h2>
+    <h2>Gestion de Categoria</h2>
     <br />
 
 
@@ -19,9 +19,6 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CategoriaID)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Descripcion)
             </th>
             <th></th>
@@ -30,9 +27,6 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CategoriaID)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Descripcion)
                 </td>

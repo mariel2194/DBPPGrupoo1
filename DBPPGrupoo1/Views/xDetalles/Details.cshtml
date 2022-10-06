@@ -26,25 +26,9 @@
             @Html.DisplayFor(model => model.Precio)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Facturas.FacturasID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Facturas.FacturasID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Productos.CodigoUPC)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Productos.CodigoUPC)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.DetalleID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DetalleId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

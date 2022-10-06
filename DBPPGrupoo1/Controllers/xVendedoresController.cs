@@ -9,10 +9,9 @@ using System.Web.Mvc;
 using DBPPGrupoo1;
 using EntityState = System.Data.Entity.EntityState;
 
-
 namespace DBPPGrupoo1.Controllers
 {
-    public class VendedoresController : Controller
+    public class xVendedoresController : Controller
     {
         private FacturacionProdGrupoo1Entities1 db = new FacturacionProdGrupoo1Entities1();
 

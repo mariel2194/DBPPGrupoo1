@@ -9,115 +9,122 @@ using System.Web.Mvc;
 using DBPPGrupoo1;
 using EntityState = System.Data.Entity.EntityState;
 
-
 namespace DBPPGrupoo1.Controllers
 {
-    public class ClientesController : Controller
+    public class xFacturasController : Controller
     {
         private FacturacionProdGrupoo1Entities1 db = new FacturacionProdGrupoo1Entities1();
 
-        // GET: Clientes
+        // GET: Facturas
         public ActionResult Index()
         {
-            var clientes = db.Clientes.Include(c => c.MetodoPago);
-            return View(clientes.ToList());
+            var facturas = db.Facturas.Include(f => f.Clientes).Include(f => f.MetodoPago).Include(f => f.Vendedores);
+            return View(facturas.ToList());
         }
 
-        // GET: Clientes/Details/5
+        // GET: Facturas/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Clientes clientes = db.Clientes.Find(id);
-            if (clientes == null)
+            Facturas facturas = db.Facturas.Find(id);
+            if (facturas == null)
             {
                 return HttpNotFound();
             }
-            return View(clientes);
+            return View(facturas);
         }
 
-        // GET: Clientes/Create
+        // GET: Facturas/Create
         public ActionResult Create()
         {
+            ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Nombre_Comercial");
             ViewBag.MetodoPagoID = new SelectList(db.MetodoPago, "MetodoPagoID", "Descripcion");
+            ViewBag.VendedorId = new SelectList(db.Vendedores, "VendedorId", "Nombre");
             return View();
         }
 
-        // POST: Clientes/Create
+        // POST: Facturas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClienteId,Nombre_Comercial,Email,Telefono,Activo,MetodoPagoID")] Clientes clientes)
+        public ActionResult Create([Bind(Include = "FacturasID,Fecha,VendedorId,ClienteId,MetodoPagoID")] Facturas facturas)
         {
             if (ModelState.IsValid)
             {
-                db.Clientes.Add(clientes);
+                db.Facturas.Add(facturas);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MetodoPagoID = new SelectList(db.MetodoPago, "MetodoPagoID", "Descripcion", clientes.MetodoPagoID);
-            return View(clientes);
+            ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Nombre_Comercial", facturas.ClienteId);
+            ViewBag.MetodoPagoID = new SelectList(db.MetodoPago, "MetodoPagoID", "Descripcion", facturas.MetodoPagoID);
+            ViewBag.VendedorId = new SelectList(db.Vendedores, "VendedorId", "Nombre", facturas.VendedorId);
+            return View(facturas);
         }
 
-        // GET: Clientes/Edit/5
+        // GET: Facturas/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Clientes clientes = db.Clientes.Find(id);
-            if (clientes == null)
+            Facturas facturas = db.Facturas.Find(id);
+            if (facturas == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MetodoPagoID = new SelectList(db.MetodoPago, "MetodoPagoID", "Descripcion", clientes.MetodoPagoID);
-            return View(clientes);
+            ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Nombre_Comercial", facturas.ClienteId);
+            ViewBag.MetodoPagoID = new SelectList(db.MetodoPago, "MetodoPagoID", "Descripcion", facturas.MetodoPagoID);
+            ViewBag.VendedorId = new SelectList(db.Vendedores, "VendedorId", "Nombre", facturas.VendedorId);
+            return View(facturas);
         }
 
-        // POST: Clientes/Edit/5
+        // POST: Facturas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClienteId,Nombre_Comercial,Email,Telefono,Activo,MetodoPagoID")] Clientes clientes)
+        public ActionResult Edit([Bind(Include = "FacturasID,Fecha,VendedorId,ClienteId,MetodoPagoID")] Facturas facturas)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(clientes).State = EntityState.Modified;
+                db.Entry(facturas).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MetodoPagoID = new SelectList(db.MetodoPago, "MetodoPagoID", "Descripcion", clientes.MetodoPagoID);
-            return View(clientes);
+            ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Nombre_Comercial", facturas.ClienteId);
+            ViewBag.MetodoPagoID = new SelectList(db.MetodoPago, "MetodoPagoID", "Descripcion", facturas.MetodoPagoID);
+            ViewBag.VendedorId = new SelectList(db.Vendedores, "VendedorId", "Nombre", facturas.VendedorId);
+            return View(facturas);
         }
 
-        // GET: Clientes/Delete/5
+        // GET: Facturas/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Clientes clientes = db.Clientes.Find(id);
-            if (clientes == null)
+            Facturas facturas = db.Facturas.Find(id);
+            if (facturas == null)
             {
                 return HttpNotFound();
             }
-            return View(clientes);
+            return View(facturas);
         }
 
-        // POST: Clientes/Delete/5
+        // POST: Facturas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Clientes clientes = db.Clientes.Find(id);
-            db.Clientes.Remove(clientes);
+            Facturas facturas = db.Facturas.Find(id);
+            db.Facturas.Remove(facturas);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

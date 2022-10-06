@@ -17,12 +17,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Precio)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Facturas.FacturasID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Productos.CodigoUPC)
-        </th>
         <th></th>
     </tr>
 
@@ -35,15 +29,9 @@
             @Html.DisplayFor(modelItem => item.Precio)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Facturas.FacturasID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Productos.CodigoUPC)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DetalleID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DetalleID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DetalleID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.DetalleId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DetalleId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DetalleId })
         </td>
     </tr>
 }

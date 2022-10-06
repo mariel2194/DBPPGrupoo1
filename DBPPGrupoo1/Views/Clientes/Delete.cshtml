@@ -12,27 +12,11 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Codigo)
+            @Html.DisplayNameFor(model => model.Nombre_Comercial)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Codigo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Telefono)
+            @Html.DisplayFor(model => model.Nombre_Comercial)
         </dd>
 
         <dt>
@@ -44,11 +28,27 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Activo)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Activo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MetodoPago.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MetodoPago.Descripcion)
         </dd>
 
     </dl>

@@ -27,6 +27,22 @@
             @Html.DisplayFor(model => model.Precio)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Facturas.FacturasID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Facturas.FacturasID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Productos.CodigoUPC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Productos.CodigoUPC)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {
