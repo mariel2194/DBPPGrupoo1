@@ -1,5 +1,4 @@
-﻿using EntityState = System.Data.Entity.EntityState;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -8,10 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DBPPGrupoo1;
+using EntityState = System.Data.Entity.EntityState;
 
 namespace DBPPGrupoo1.Controllers
 {
-    public class ProductosController : Controller
+    public class xProductosController : Controller
     {
         private FacturacionProdGrupoo1Entities1 db = new FacturacionProdGrupoo1Entities1();
 

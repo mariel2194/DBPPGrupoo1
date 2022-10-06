@@ -139,13 +139,14 @@
     <Compile Include="Clientes.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\CategoriasController.cs" />
+    <Compile Include="Controllers\ProductosController.cs" />
+    <Compile Include="Controllers\sxCategoriasController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\DetallesController.cs" />
     <Compile Include="Controllers\FacturasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MetodoPagoesController.cs" />
-    <Compile Include="Controllers\ProductosController.cs" />
+    <Compile Include="Controllers\xProductosController.cs" />
     <Compile Include="Controllers\VendedoresController.cs" />
     <Compile Include="Detalle.cs">
       <DependentUpon>Model2.tt</DependentUpon>
@@ -260,11 +261,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Categorias\Create.cshtml" />
-    <Content Include="Views\Categorias\Delete.cshtml" />
-    <Content Include="Views\Categorias\Details.cshtml" />
-    <Content Include="Views\Categorias\Edit.cshtml" />
-    <Content Include="Views\Categorias\Index.cshtml" />
+    <Content Include="Views\Categoriasx\Create.cshtml" />
+    <Content Include="Views\Categoriasx\Delete.cshtml" />
+    <Content Include="Views\Categoriasx\Details.cshtml" />
+    <Content Include="Views\Categoriasx\Edit.cshtml" />
+    <Content Include="Views\Categoriasx\Index.cshtml" />
     <Content Include="Views\Clientes\Create.cshtml" />
     <Content Include="Views\Clientes\Delete.cshtml" />
     <Content Include="Views\Clientes\Details.cshtml" />
@@ -285,16 +286,16 @@
     <Content Include="Views\MetodoPagoes\Details.cshtml" />
     <Content Include="Views\MetodoPagoes\Edit.cshtml" />
     <Content Include="Views\MetodoPagoes\Index.cshtml" />
-    <Content Include="Views\Productos\Create.cshtml" />
-    <Content Include="Views\Productos\Delete.cshtml" />
-    <Content Include="Views\Productos\Details.cshtml" />
-    <Content Include="Views\Productos\Edit.cshtml" />
-    <Content Include="Views\Productos\Index.cshtml" />
     <Content Include="Views\Vendedores\Create.cshtml" />
     <Content Include="Views\Vendedores\Delete.cshtml" />
     <Content Include="Views\Vendedores\Details.cshtml" />
     <Content Include="Views\Vendedores\Edit.cshtml" />
     <Content Include="Views\Vendedores\Index.cshtml" />
+    <Content Include="Views\Productos\Create.cshtml" />
+    <Content Include="Views\Productos\Delete.cshtml" />
+    <Content Include="Views\Productos\Details.cshtml" />
+    <Content Include="Views\Productos\Edit.cshtml" />
+    <Content Include="Views\Productos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
