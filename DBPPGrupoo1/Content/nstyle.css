@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --blue: #007bff;
     --indigo: #6610f2;
     --purple: #6f42c1;
@@ -20033,3 +20033,8 @@ html[dir=rtl] .sidebar li > a .caret:before {
     font-weight: 500;
 }
 /*# sourceMappingURL=style.css.map */
+.a {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
+}

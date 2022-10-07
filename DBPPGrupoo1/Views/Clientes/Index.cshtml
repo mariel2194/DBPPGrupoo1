@@ -4,54 +4,62 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="custom">
+    <h2>Gestión de Clientes</h2>
+    <br />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre_Comercial)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Telefono)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Activo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MetodoPago.Descripcion)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre_Comercial)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telefono)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Activo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MetodoPago.Descripcion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ClienteId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ClienteId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ClienteId })
-        </td>
-    </tr>
-}
 
-</table>
+    <div>
+        <button type="button" class="btn"> @Html.ActionLink("Agregar Nuevo Cliente", "Create")</button>
+    </div>
+
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre_Comercial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetodoPago.Descripcion)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre_Comercial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Activo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MetodoPago.Descripcion)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.ClienteId }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.ClienteId }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.ClienteId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
