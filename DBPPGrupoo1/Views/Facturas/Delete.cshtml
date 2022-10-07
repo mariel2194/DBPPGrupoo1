@@ -4,53 +4,68 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<div class="custom">
 
-<h4>Desea borrar el siguiente registro?</h4>
-<div>
-    <h4>Facturas</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </dt>
+    <h2>Eliminar Facturas</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fecha)
-        </dd>
+    <div style="font-size:20px">
+        <h4>Desea borrar el siguiente registro?</h4>
+        <div>
+            <br />
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Clientes.Nombre_Comercial)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Fecha)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Clientes.Nombre_Comercial)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Clientes.Nombre_Comercial)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MetodoPago.Descripcion)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Clientes.Nombre_Comercial)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MetodoPago.Descripcion)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MetodoPago.Descripcion)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Vendedores.Nombre)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MetodoPago.Descripcion)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Vendedores.Nombre)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Vendedores.Nombre)
+                </dt>
 
-    </dl>
+                <dd>
+                    @Html.DisplayFor(model => model.Vendedores.Nombre)
+                </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+            </dl>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Eliminar" class="btn" /> |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            }
         </div>
-    }
+    </div>
 </div>
+<style>
+    .btn {
+        background-color: #9e6de0;
+        padding: 10px;
+        border-radius: 15px;
+        color: #ffffff;
+        text-decoration: none;
+    }
+</style>

@@ -27,7 +27,13 @@
                 @Html.DisplayNameFor(model => model.MetodoPago.Descripcion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Vendedores.Nombre)
+                Cantidad
+            </th>
+            <th>
+                Precio Total
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendedores.Nombre) Vendedor
             </th>
             <th></th>
         </tr>
@@ -48,6 +54,10 @@
                     @Html.DisplayFor(modelItem => item.Vendedores.Nombre)
                 </td>
                 <td>
+                </td>
+                <td>
+                </td>
+                <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.FacturasID }) |
                     @Html.ActionLink("Details", "Details", new { id = item.FacturasID }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.FacturasID })
@@ -57,3 +67,9 @@
 
     </table>
 </div>
+
+<script>
+    var d = new Date();
+    var date = d.getUTCDate();
+    document.getElementById("fecha").innerHTML = date;
+</script>
